@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function signedIn() { return request.auth != null; }
+    function isTeacher() { return signedIn() && get(/databases/$(db)/documents/users/$(request.auth.uid)).data.role in ['teacher','admin']; }
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isTeacher());
+      // students can't promote themselves
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'student';
+      allow update: if signedIn() && request.auth.uid == uid && request.resource.data.role == resource.data.role;
+    }
+    // shared, teacher-written content
+    match /videos/{id}  { allow read: if signedIn(); allow write: if isTeacher(); }
+    match /classes/{id} { allow read: if signedIn(); allow write: if isTeacher(); }
+    match /doubts/{id}  { allow read: if signedIn(); allow create: if signedIn(); allow update: if isTeacher(); }
+    // per-student data: owner reads/writes, teachers can read for analytics
+    match /{col}/{id} {
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow read, update, delete: if signedIn() && (resource.data.uid == request.auth.uid || isTeacher());
+    }
+  }
+}

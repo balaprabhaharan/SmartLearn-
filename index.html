@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>SmartLearn – AI-Powered Adaptive Learning Ecosystem</title>
+<meta name="description" content="Free AI tutor, quizzes, video lessons and live classes for Tamil Nadu State Board students, in Tamil and English.">
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div id="toasts"></div><canvas id="confetti"></canvas><div id="modal"></div>
+<header class="land-nav"><div class="logo" id="logo"></div>
+ <div class="row"><button class="chip" id="langBtn" aria-label="Switch language">தமிழ் / English</button><a href="#" data-a="login" class="btn ghost sm">Log in</a></div></header>
+
+<section class="hero">
+ <span class="blob" style="width:260px;height:260px;background:#DDD6FE;top:-60px;left:-60px"></span>
+ <span class="blob" style="width:200px;height:200px;background:#FBCFE8;top:120px;right:-40px;animation-delay:2s"></span>
+ <span class="blob" style="width:180px;height:180px;background:#A7F3D0;bottom:-50px;left:30%;animation-delay:4s"></span>
+ <div id="heroMascot"></div>
+ <span class="sticker">Free for classes 9–12 🇮🇳</span>
+ <h1>Don't just watch.<br>Understand it. 💪</h1>
+ <p class="mu" style="max-width:560px;margin:16px auto 28px;font-size:1.1rem" id="heroSub">An AI tutor that thinks with you, quizzes that adapt, video lessons in Tamil or English, and live classes with real teachers.</p>
+ <div class="row" style="justify-content:center;flex-direction:column;gap:12px">
+  <button class="btn" style="min-width:240px" data-a="register">Start learning</button>
+  <button class="chip" data-a="guest">Try without signing up</button>
+  <span class="small mu">Already here? <a href="#" data-a="login">Log in</a></span>
+ </div>
+</section>
+
+<section class="wrap sec"><h2 class="center reveal">Everything you need to clear your doubts</h2>
+ <div class="grid g3" style="margin-top:20px" id="feat"></div></section>
+<section class="wrap sec"><div class="card soft center reveal"><h2>Our vision</h2><p class="mu">Making personalised, quality education accessible to every learner, in their own language.</p></div></section>
+<footer>© SmartLearn · <a href="#" data-a="privacy">Privacy</a> · AI answers can contain mistakes, so check with your textbook.</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+<script src="js/config.js"></script><script src="js/quizdata.js"></script><script src="js/db.js"></script><script src="js/ui.js"></script><script src="js/auth.js"></script>
+</body></html>
